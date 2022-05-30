@@ -28,3 +28,10 @@ class Employee:
             return response.text
         else:
             return 'Bad Response!'
+
+    def func_for_compare(self):
+        response = requests.get("http://github.com")
+        if response.ok:
+            return response.text
+        else:
+            return 'Bad Response!'
