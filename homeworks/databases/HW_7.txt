@@ -1,0 +1,40 @@
+Task #1
+
+mysql> CREATE DATABASE school66_hw;
+mysql -u vitalii -p school66_hw < school66.sql;
+
+Task #2
+mysql -u vitalii -p
+mysql> CREATE TABLE student_level (student_id INT NOT NULL, level INT NOT NULL);
+mysql> INSERT INTO student_level (student_id, level) VALUES (1, 10),(2,11),(3,10),(4,11);
+mysql> SELECT s.id, s.first_name, s.last_name, sl.level FROM students s INNER JOIN student_level sl ON sl.student_id = s.id;
++----+------------+-----------+-------+
+| id | first_name | last_name | level |
++----+------------+-----------+-------+
+|  1 | Ivan       | Pidhaynuy |    10 |
+|  2 | Petro      | Pravdoryb |    11 |
+|  3 | Yuriy      | Skobylko  |    10 |
+|  4 | Liubomyr   | Luzhnyi   |    11 |
++----+------------+-----------+-------+
+4 rows in set (0,00 sec)
+
+
+Task #3
+mysql> SELECT s.id, s.first_name, s.last_name, sl.level, t.name teachers_name, les.name lesson, les.id lesson_id FROM students s INNER JOIN student_level sl ON s.id = sl.student_id INNER JOIN students_lessons sles ON s.id = sles.student_id INNER JOIN lessons les ON les.id = sles.lesson_id LEFT JOIN teachers t ON t.lesson_id = sles.lesson_id ORDER BY s.id;
++----+------------+-----------+-------+----------------------+----------+-----------+
+| id | first_name | last_name | level | teachers_name        | lesson   | lesson_id |
++----+------------+-----------+-------+----------------------+----------+-----------+
+|  1 | Ivan       | Pidhaynuy |    10 | Yulia Liubomyrivna   | IT       |         3 |
+|  1 | Ivan       | Pidhaynuy |    10 | NULL                 | Graphity |         4 |
+|  2 | Petro      | Pravdoryb |    11 | Kateryna Yuriivna    | Biology  |         1 |
+|  2 | Petro      | Pravdoryb |    11 | Roskolana Stepanivna | Biology  |         1 |
+|  2 | Petro      | Pravdoryb |    11 | Margaryta Ivanivna   | Math     |         2 |
+|  3 | Yuriy      | Skobylko  |    10 | Kateryna Yuriivna    | Biology  |         1 |
+|  3 | Yuriy      | Skobylko  |    10 | Roskolana Stepanivna | Biology  |         1 |
+|  3 | Yuriy      | Skobylko  |    10 | Margaryta Ivanivna   | Math     |         2 |
+|  4 | Liubomyr   | Luzhnyi   |    11 | Kateryna Yuriivna    | Biology  |         1 |
+|  4 | Liubomyr   | Luzhnyi   |    11 | Roskolana Stepanivna | Biology  |         1 |
+|  4 | Liubomyr   | Luzhnyi   |    11 | Yulia Liubomyrivna   | IT       |         3 |
++----+------------+-----------+-------+----------------------+----------+-----------+
+11 rows in set (0,00 sec)
+
