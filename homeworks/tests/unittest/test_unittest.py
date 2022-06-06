@@ -19,10 +19,7 @@ class FunctionTest(unittest.TestCase):
         self.assertEqual(Calculator.multiply(25, 4), 100)
 
     def test_divide(self):
-        try:
-            Calculator.divide(20, 0)
-        except ZeroDivisionError:
-            self.assertEqual(0, 0)
+        self.assertRaises(ValueError, Calculator.divide, 60, 0)
         self.assertEqual(Calculator.divide(20, 10), 2)
         self.assertEqual(Calculator.divide(100, 2), 50)
         self.assertNotEqual(Calculator.divide(5000, 250), 6)
