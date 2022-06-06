@@ -8,14 +8,14 @@ class TestEmployee(unittest.TestCase):
         self.test_info = Employee('Vitali', 'Zahrebelnyi', 1000)
 
     def test_email(self):
-        self.assertEqual(self.test_info.email, 'Vitali.Zagrebelnyi@gmail.com')
+        self.assertEqual(self.test_info.email, 'Vitali.Zahrebelnyi@email.com')
 
     def test_fullname(self):
         self.assertEqual(self.test_info.fullname, 'Vitali Zahrebelnyi')
 
     def test_apply_raise(self):
         self.test_info.apply_raise()
-        self.assertEqual(self.test_info.pay, 1500)
+        self.assertEqual(self.test_info.pay, 1050)
 
     @patch("employee.Employee.monthly_schedule")
     def test_monthly_schedule(self, mockCheck):
