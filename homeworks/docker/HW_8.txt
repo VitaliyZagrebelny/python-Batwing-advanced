@@ -1,0 +1,127 @@
+docker build . -t homework
+
+
+docker images
+
+
+docker run  homework
+ * Serving Flask app '/app/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses (0.0.0.0)
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.17.0.2:8080 (Press CTRL+C to quit)
+172.17.0.1 - - [20/Jun/2022 13:20:52] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [20/Jun/2022 13:20:52] "GET /favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [20/Jun/2022 13:21:16] "GET /hello HTTP/1.1" 200 -
+
+
+
+_____________________________________________________
+vitalia@vitalia:~/PycharmProjects/python-Batwing-advanced/homeworks/docker$ docker run -it --name my_stor ubuntu
+root@2fc630a54705:/# echo "My story"
+My story
+root@2fc630a54705:/# echo "My story" > story.txt
+root@2fc630a54705:/# ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv        sys  usr
+boot  etc  lib   lib64  media   opt  root  sbin  story.txt  tmp  var
+root@2fc630a54705:/# apt-get install cowsay -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package cowsay
+root@2fc630a54705:/# apt update
+Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+Get:3 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [230 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [4648 B]
+Get:5 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [212 kB]
+Get:6 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [90.2 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [109 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [153 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [236 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [381 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [4648 B]
+Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [2016 B]
+Fetched 21.6 MB in 6s (3831 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+5 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@2fc630a54705:/#
+root@2fc630a54705:/# apt-get install cowsay -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libgdbm-compat4 libgdbm6 libperl5.34 libtext-charwidth-perl netbase perl perl-modules-5.34
+Suggested packages:
+  filters cowsay-off gdbm-l10n perl-doc libterm-readline-gnu-perl | libterm-readline-perl-perl make
+  libtap-harness-archive-perl
+The following NEW packages will be installed:
+  cowsay libgdbm-compat4 libgdbm6 libperl5.34 libtext-charwidth-perl netbase perl perl-modules-5.34
+0 upgraded, 8 newly installed, 0 to remove and 5 not upgraded.
+Need to get 8098 kB of archives.
+After this operation, 48.5 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 perl-modules-5.34 all 5.34.0-3ubuntu1 [2975 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgdbm6 amd64 1.23-1 [33.9 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgdbm-compat4 amd64 1.23-1 [6606 B]
+Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 libperl5.34 amd64 5.34.0-3ubuntu1 [4809 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 perl amd64 5.34.0-3ubuntu1 [232 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 libtext-charwidth-perl amd64 0.04-10build3 [10.2 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy/main amd64 netbase all 6.3 [12.9 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/universe amd64 cowsay all 3.03+dfsg2-8 [18.6 kB]
+Fetched 8098 kB in 1s (6957 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package perl-modules-5.34.
+(Reading database ... 4395 files and directories currently installed.)
+Preparing to unpack .../0-perl-modules-5.34_5.34.0-3ubuntu1_all.deb ...
+Unpacking perl-modules-5.34 (5.34.0-3ubuntu1) ...
+Selecting previously unselected package libgdbm6:amd64.
+Preparing to unpack .../1-libgdbm6_1.23-1_amd64.deb ...
+Unpacking libgdbm6:amd64 (1.23-1) ...
+Selecting previously unselected package libgdbm-compat4:amd64.
+Preparing to unpack .../2-libgdbm-compat4_1.23-1_amd64.deb ...
+Unpacking libgdbm-compat4:amd64 (1.23-1) ...
+Selecting previously unselected package libperl5.34:amd64.
+Preparing to unpack .../3-libperl5.34_5.34.0-3ubuntu1_amd64.deb ...
+Unpacking libperl5.34:amd64 (5.34.0-3ubuntu1) ...
+Selecting previously unselected package perl.
+Preparing to unpack .../4-perl_5.34.0-3ubuntu1_amd64.deb ...
+Unpacking perl (5.34.0-3ubuntu1) ...
+Selecting previously unselected package libtext-charwidth-perl.
+Preparing to unpack .../5-libtext-charwidth-perl_0.04-10build3_amd64.deb ...
+Unpacking libtext-charwidth-perl (0.04-10build3) ...
+Selecting previously unselected package netbase.
+Preparing to unpack .../6-netbase_6.3_all.deb ...
+Unpacking netbase (6.3) ...
+Selecting previously unselected package cowsay.
+Preparing to unpack .../7-cowsay_3.03+dfsg2-8_all.deb ...
+Unpacking cowsay (3.03+dfsg2-8) ...
+Setting up libtext-charwidth-perl (0.04-10build3) ...
+Setting up perl-modules-5.34 (5.34.0-3ubuntu1) ...
+Setting up netbase (6.3) ...
+Setting up libgdbm6:amd64 (1.23-1) ...
+Setting up libgdbm-compat4:amd64 (1.23-1) ...
+Setting up libperl5.34:amd64 (5.34.0-3ubuntu1) ...
+Setting up perl (5.34.0-3ubuntu1) ...
+Setting up cowsay (3.03+dfsg2-8) ...
+Processing triggers for libc-bin (2.35-0ubuntu3) ...
+root@2fc630a54705:/# cat story.txt | ./usr/games/cowsay
+ __________
+< My story >
+ ----------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+root@2fc630a54705:/#
