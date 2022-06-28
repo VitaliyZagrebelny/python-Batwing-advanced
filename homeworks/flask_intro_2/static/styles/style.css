@@ -1,0 +1,12 @@
+body {
+    background-color: teal;
+
+}
+
+.bg-dark .navbar-nav .nav-item>a {
+    color: white !important;
+}
+
+.card {
+    margin-right: 25px;
+}
