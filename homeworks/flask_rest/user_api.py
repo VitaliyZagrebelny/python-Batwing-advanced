@@ -11,15 +11,16 @@ db = UserDB()
 @user_router.route('')
 def get():
     users = db.get_all()
-    # return jsonify(users)
-    # return make_response(jsonify(users), http.HTTPStatus.OK, {"custom": "header"})
     return Response(str(users))
 
 
 @user_router.route('/<string:email>')
 def retrieve(email):
     user = db.retrieve_by_email(email)
-    return user
+    if not user:
+        return "Not found", http.HTTPStatus.BAD_REQUEST
+    else:
+        return user
 
 
 @user_router.route('', methods=['POST'])
@@ -48,5 +49,5 @@ def update():
 
 @user_router.route('/<string:email>', methods=['DELETE'])
 def delete(email):
-    db.delete_by_email(email)
-    return {}, http.HTTPStatus.NO_CONTENT
+    res = db.delete_by_email(email)
+    return res
