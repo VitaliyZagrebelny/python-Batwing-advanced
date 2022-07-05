@@ -30,7 +30,7 @@ class UserDB:
         else:
             return False
 
-    def update_by_email(self, email, name, password):
+    def update_by_email(self, name, email, password):
         for user in self.users:
             if user["email"] == email:
                 user["name"] = name
