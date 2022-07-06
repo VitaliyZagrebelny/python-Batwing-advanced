@@ -1,6 +1,6 @@
 from main import db
 from models.user import User
-from models.lib import Book
+from models.book import Book
 
 if __name__ == '__main__':
     db.create_all()
