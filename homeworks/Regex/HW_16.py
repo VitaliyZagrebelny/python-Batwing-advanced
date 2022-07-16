@@ -17,8 +17,8 @@ print(result.groups())
 
 print("=" * 50)
 
-pattern = r"[0]"
-text = "216.008.094.196"
+pattern = r"\.[0]"
+text = "216.008.094.190"
 result = re.sub(pattern=pattern, repl=" ", string=text)
 print(result)
 
