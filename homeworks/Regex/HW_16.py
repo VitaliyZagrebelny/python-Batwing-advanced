@@ -9,15 +9,15 @@ print(result)
 
 print("=" * 50)
 
-pattern = r"(\b[A-Za-z0-9._%/+-]{1,255})+@([A-Za-z0-9]+.[A-Z|a-z]{1,255}\b)"
-text = "zagrebelnyivitalii@gmail.com"
+pattern = r"[\wd\.]{1,255}@\w+\.+[\wd\.]{1,255}"
+text = 'zagrebelnyivitalii@gmail.com'
 result = re.match(pattern=pattern, string=text)
 
 print(result.groups())
 
 print("=" * 50)
 
-pattern = r"\.[0]"
+pattern = r"\.[0]*"
 text = "216.008.094.190"
 result = re.sub(pattern=pattern, repl=" ", string=text)
 print(result)
@@ -25,7 +25,7 @@ print(result)
 print("=" * 50)
 
 pattern = r"\d{1,3}[.]\d{1,3}[.]\d{1,3}[.]\d{1,2}"
-text = "153.192.392.84"
+text = "153.192.238.84"
 result = re.match(pattern=pattern, string=text)
 
 print(result)
