@@ -25,9 +25,10 @@ regex = re.findall(pattern=pattern, string=text)
 regex2 = ', '.join('.'.join(tup) for tup in regex)
 ip_address = re.sub(r'\b0+(\d)', r'\1', regex2)
 print(ip_address)
+
 print("=" * 50)
 
-pattern = r'^\d+\.\d+\.\d+\.\d+$'
+pattern = r'(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}'
 text = "216.008.094.196"
 result = re.match(pattern=pattern, string=text)
 
