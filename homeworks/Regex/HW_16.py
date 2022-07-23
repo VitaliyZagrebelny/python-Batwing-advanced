@@ -27,8 +27,8 @@ ip_address = re.sub(r'\b0+(\d)', r'\1', regex2)
 print(ip_address)
 print("=" * 50)
 
-pattern = r'^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$'
-text = "153.192.238.84"
+pattern = r'^\d+\.\d+\.\d+\.\d+$'
+text = "216.008.094.196"
 result = re.match(pattern=pattern, string=text)
 
 print(result)
