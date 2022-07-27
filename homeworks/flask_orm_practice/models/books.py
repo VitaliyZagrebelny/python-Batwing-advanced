@@ -1,10 +1,5 @@
 from database import db
 
-import os
-import sys
-
-sys.path.append(os.path.abspath('..'))
-
 
 class Book(db.Model):
     __tablename__ = "books"

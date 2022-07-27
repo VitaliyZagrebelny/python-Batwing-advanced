@@ -1,8 +1,3 @@
-import os
-import sys
-
-sys.path.append(os.path.abspath(".."))
-
 import http
 
 from flask import Blueprint, request, jsonify

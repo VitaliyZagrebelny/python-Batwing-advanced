@@ -1,14 +1,6 @@
-import os
-import sys
-
-sys.path.append(os.path.abspath('..'))
 import http
-import os
-import sys
 from flask import Blueprint, request, jsonify
 from marshmallow import ValidationError
-
-sys.path.append(os.path.abspath('..'))
 from database import db
 from models.authors import Author
 from serializers.authors import AuthorSchema

@@ -1,5 +1,4 @@
 from flask import Flask
-import http
 from config import Config
 from database import db
 from api.authors_api import author_router
@@ -15,15 +14,7 @@ def create_app():
     app.register_blueprint(author_router)
     app.register_blueprint(book_router)
     app.register_blueprint(author_title_router)
-    @app.route('/')
-    def home_page():
-        return "Hello"
-    @app.route('/<smth>')
-    def fail(smth):
-        return "Failed" , http.HTTPStatus.NOT_FOUND
-    @app.errorhandler(404)
-    def error_404(e):
-        return "Sorry,Bro"
+
     return app
 
 

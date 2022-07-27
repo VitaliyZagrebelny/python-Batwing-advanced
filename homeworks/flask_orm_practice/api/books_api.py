@@ -1,8 +1,4 @@
 import http
-import os
-import sys
-import http
-sys.path.append(os.path.abspath('..'))
 from flask import Blueprint, jsonify, request
 from database import db
 from models.books import Book
