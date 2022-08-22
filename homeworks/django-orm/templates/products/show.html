@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-8">
+        <div class="card-group">
+          {% for product in products %}
+          <div class="card text-center">
+              <div class="card-header">
+                  {{ product.category.category_name }}
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ product.title }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+              </div>
+              <div class="card-footer text-muted">
+                  {{ product.approved_by.username }}
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+    <div class="col-4">
+        <h2>Category</h2>
+        <hr>
+        <a class="link-primary" href="{% url 'show_products' %}">All</a>
+            {% for category in categories %}
+                <li class="list-group-item">
+                    <a class="link-info" href="{% url 'show_products' %}?category={{ category.category_name }}">{{ category.category_name }}</a>
+                </li>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %} 
