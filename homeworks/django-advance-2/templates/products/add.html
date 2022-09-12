@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Add Product</h1>
+        <form method="POST" action="{% url 'add_product' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" id="title" aria-describedby="title">
+                {% if form.title.errors %}
+                 <div class="form-text text-danger">{{ form.title.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+                {% if form.description.errors %}
+                 <div class="form-text text-danger">{{ form.description.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" name="price" aria-describedby="price">
+                {% if form.description.errors %}
+                 <div class="form-text text-danger">{{ form.price.errors }}</div>
+                {% endif %}
+            </div>
+            {% if user.is_staff %}
+            <div class="mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="approved" name="approved">
+                <label for="approved" class="form-check-label">Approved</label>
+                {% if form.description.errors %}
+                 <div class="form-text text-danger">{{ form.approved.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="display_on_main_page" name="display_on_main_page">
+                <label for="display_on_main_page" class="form-check-label">Display_on_main_page</label>
+                {% if form.description.errors %}
+                 <div class="form-text text-danger">{{ form.display_on_main_page.errors }}</div>
+                {% endif %}
+            </div>
+            {% endif %}
+            <div class="mb-3">
+                <select class="form-select" multiple aria-label="multiple select example" name="categories">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
